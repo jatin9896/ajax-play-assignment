@@ -1,0 +1,110 @@
+@()
+<form class="form-horizontal" action="" method="post">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="firstName">First Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="midName">Middle Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="midName" name="midName" placeholder="Enter Middle Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="lastName">Last Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="lastName"  name="lastName" placeholder="Enter Last Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="username">UserName:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="password">Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="pwdCheck">Confirm Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="pwdCheck" placeholder="Enter password again">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="mobile">Mobile:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile number">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="gender">Gender:</label>
+        <div class="col-sm-2">
+            <select name="gender" id="gender" name="gender" >
+                <option value="male" >M</option>
+                <option value="female">F</option>
+            </select>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+
+        <label class="control-label col-sm-2" for="age">Age:</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" id="age" name="age" placeholder="Enter age">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="hobbies">Hobbies:</label>
+        <div class="col-sm-10">
+            <select name="hobbies" id="hobbies" size=4 multiple>
+                <option value='blue'>Blue</option>
+                <option value='green'>Green</option>
+                <option value='red'>Red</option>
+                <option value='yellow'>Yellow</option>
+                <option value='' selected>Select a Color </option>
+                <option value='white'>White</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" id="submit">Submit</button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+       $(document).ready(function(){
+     $('#submit').on("click",function(){
+     alert('in submit'+$('#username').val()+"  "+$('#password').val());
+
+        routesJs.controllers.SignUpController.addUser($('#username').val(),$('#password').val()).ajax({
+            success: function(data){
+            alert("ajax success");
+            alert("data"+data)
+             $('#body').html(data);
+            },
+            error: function(data){
+            $('#login1').html(data);
+
+            }
+        });
+      });
+    });
+</script>
