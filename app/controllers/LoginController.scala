@@ -1,6 +1,7 @@
 package controllers
 
 import com.google.inject.Inject
+import models.Login
 import play.api.mvc.{Action, Controller}
 import services.CacheService
 
@@ -13,6 +14,20 @@ class LoginController @Inject()(cacheService: CacheService) extends Controller {
     implicit request =>
       Ok(views.html.login())
 
+  }
+  def authenticate(id:String,pass:String)=Action {
+    implicit request =>
+      if(cacheService.contains(id)){
+        val output= cacheService.read(id)
+        if(pass==output.pass)
+          Ok(views.html.login())
+        else
+          Ok("Authentication issue wrong password")
+        Ok(views.html.signup())
+      }
+      else{
+      Ok("no such user")
+      }
   }
 
 }

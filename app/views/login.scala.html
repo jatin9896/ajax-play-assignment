@@ -19,3 +19,25 @@
         </div>
     </div>
 </form>
+
+<script type="text/javascript" src="@routes.RoutesController.routesList"></script>
+<script>
+
+       $(document).ready(function(){
+     $('#submit').on("click",function(){
+     alert('in Login'+$('#username').val()+"  "+$('#password').val());
+
+        routesJs.controllers.LoginController.authenticate($('#username').val(),$('#password').val()).ajax({
+            success: function(data){
+            alert("ajax success");
+            alert("data"+data)
+             $('#body').html(data);
+            },
+            error: function(data){
+            $('#body').html(data);
+
+            }
+        });
+      });
+    });
+</script>

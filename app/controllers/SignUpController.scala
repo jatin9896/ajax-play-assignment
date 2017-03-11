@@ -17,9 +17,13 @@ class SignUpController @Inject()(cacheService: CacheService) extends Controller 
   }
   def addUser(id:String,name:String) =Action{
     implicit request =>
-
+    if(cacheService.contains(id)){
+      Ok(views.html.signup())
+    }
+    else{
       cacheService.write(Login(id,name))
       Ok(views.html.login())
+    }
 
 
   }
