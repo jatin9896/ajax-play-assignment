@@ -57,7 +57,7 @@ Seq[Any](format.raw/*5.19*/("""
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 11 01:06:33 IST 2017
+                  DATE: Sat Mar 11 14:29:30 IST 2017
                   SOURCE: /home/knoldus/Desktop/play-ajax-assignment/app/views/index.scala.html
                   HASH: a81f108240070e68924090e3fa0e4a45e1b4ba99
                   MATRIX: 616->95|728->112|757->308|785->310|817->333|857->335|890->464|922->470|937->476|992->510|1025->513

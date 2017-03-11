@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/knoldus/Desktop/play-ajax-assignment/conf/routes
-// @DATE:Sat Mar 11 07:19:42 IST 2017
+// @DATE:Sat Mar 11 14:29:29 IST 2017
 
 package controllers;
 

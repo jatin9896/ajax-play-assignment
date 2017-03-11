@@ -15,9 +15,9 @@ class CacheService @Inject()(cache: CacheApi)  {
     cache.set(user.id, user)
     cache.get[List[String]]("userList").fold{
       cache.set("userList",List(user.id))
+      Console.println("first entry in cache : "+user)
       user.id
     }{ list =>
-
       val output: List[String] = readAll().map(x=>x.id)
       val updatedList =  user.id :: output
       cache.remove("userList")

@@ -14,7 +14,8 @@ class RoutesController @Inject()(cacheService: CacheService)(implicit val messag
     Ok(     JavaScriptReverseRouter("routesJs")(
         routes.javascript.SignUpController.signup,
         routes.javascript.LoginController.login,
-        routes.javascript.SignUpController.addUser
+        routes.javascript.SignUpController.addUser,
+      routes.javascript.LoginController.authenticate
       )
     ).as("text/javascript")
   }

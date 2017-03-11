@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/knoldus/Desktop/play-ajax-assignment/conf/routes
-// @DATE:Sat Mar 11 07:19:42 IST 2017
+// @DATE:Sat Mar 11 14:29:29 IST 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -97,7 +97,7 @@ package controllers {
     // @LINE:19
     def authenticate(id:String, pass:String): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "login" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("id", id)), Some(implicitly[QueryStringBindable[String]].unbind("pass", pass)))))
+      Call("GET", _prefix + { _defaultPrefix } + "verifying/" + implicitly[PathBindable[String]].unbind("id", dynamicString(id)) + "/" + implicitly[PathBindable[String]].unbind("pass", dynamicString(pass)))
     }
   
     // @LINE:17
@@ -124,7 +124,7 @@ package controllers {
     // @LINE:18
     def addUser(id:String, pass:String): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "adduser" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("id", id)), Some(implicitly[QueryStringBindable[String]].unbind("pass", pass)))))
+      Call("GET", _prefix + { _defaultPrefix } + "adduser/" + implicitly[PathBindable[String]].unbind("id", dynamicString(id)) + "/" + implicitly[PathBindable[String]].unbind("pass", dynamicString(pass)))
     }
   
   }

@@ -15,5 +15,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 GET     /signup                     controllers.SignUpController.signup
 GET     /routesJs                   controllers.RoutesController.routesList
 GET     /login                      controllers.LoginController.login
-POST    /adduser                   controllers.SignUpController.addUser(id:String,pass:String)
-POST     /login                    controllers.LoginController.authenticate(id:String,pass:String)
+GET    /adduser/:id/:pass                   controllers.SignUpController.addUser(id:String,pass:String)
+GET    /verifying/:id/:pass                      controllers.LoginController.authenticate(id:String,pass:String)

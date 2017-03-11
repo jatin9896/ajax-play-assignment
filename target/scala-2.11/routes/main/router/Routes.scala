@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/knoldus/Desktop/play-ajax-assignment/conf/routes
-// @DATE:Sat Mar 11 07:19:42 IST 2017
+// @DATE:Sat Mar 11 14:29:29 IST 2017
 
 package router
 
@@ -69,8 +69,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.SignUpController.signup"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """routesJs""", """controllers.RoutesController.routesList"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.LoginController.login"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """adduser""", """controllers.SignUpController.addUser(id:String, pass:String)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.LoginController.authenticate(id:String, pass:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """adduser/""" + "$" + """id<[^/]+>/""" + "$" + """pass<[^/]+>""", """controllers.SignUpController.addUser(id:String, pass:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """verifying/""" + "$" + """id<[^/]+>/""" + "$" + """pass<[^/]+>""", """controllers.LoginController.authenticate(id:String, pass:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -198,8 +198,8 @@ class Routes(
   )
 
   // @LINE:18
-  private[this] lazy val controllers_SignUpController_addUser7_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("adduser")))
+  private[this] lazy val controllers_SignUpController_addUser7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("adduser/"), DynamicPart("id", """[^/]+""",true), StaticPart("/"), DynamicPart("pass", """[^/]+""",true)))
   )
   private[this] lazy val controllers_SignUpController_addUser7_invoker = createInvoker(
     SignUpController_0.addUser(fakeValue[String], fakeValue[String]),
@@ -208,15 +208,15 @@ class Routes(
       "controllers.SignUpController",
       "addUser",
       Seq(classOf[String], classOf[String]),
-      "POST",
+      "GET",
       """""",
-      this.prefix + """adduser"""
+      this.prefix + """adduser/""" + "$" + """id<[^/]+>/""" + "$" + """pass<[^/]+>"""
     )
   )
 
   // @LINE:19
-  private[this] lazy val controllers_LoginController_authenticate8_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
+  private[this] lazy val controllers_LoginController_authenticate8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("verifying/"), DynamicPart("id", """[^/]+""",true), StaticPart("/"), DynamicPart("pass", """[^/]+""",true)))
   )
   private[this] lazy val controllers_LoginController_authenticate8_invoker = createInvoker(
     LoginController_6.authenticate(fakeValue[String], fakeValue[String]),
@@ -225,9 +225,9 @@ class Routes(
       "controllers.LoginController",
       "authenticate",
       Seq(classOf[String], classOf[String]),
-      "POST",
+      "GET",
       """""",
-      this.prefix + """login"""
+      this.prefix + """verifying/""" + "$" + """id<[^/]+>/""" + "$" + """pass<[^/]+>"""
     )
   )
 
@@ -278,13 +278,13 @@ class Routes(
   
     // @LINE:18
     case controllers_SignUpController_addUser7_route(params) =>
-      call(params.fromQuery[String]("id", None), params.fromQuery[String]("pass", None)) { (id, pass) =>
+      call(params.fromPath[String]("id", None), params.fromPath[String]("pass", None)) { (id, pass) =>
         controllers_SignUpController_addUser7_invoker.call(SignUpController_0.addUser(id, pass))
       }
   
     // @LINE:19
     case controllers_LoginController_authenticate8_route(params) =>
-      call(params.fromQuery[String]("id", None), params.fromQuery[String]("pass", None)) { (id, pass) =>
+      call(params.fromPath[String]("id", None), params.fromPath[String]("pass", None)) { (id, pass) =>
         controllers_LoginController_authenticate8_invoker.call(LoginController_6.authenticate(id, pass))
       }
   }

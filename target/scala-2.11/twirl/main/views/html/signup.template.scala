@@ -23,7 +23,7 @@ class signup extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Form
 
 
 Seq[Any](format.raw/*1.4*/("""
-"""),format.raw/*2.1*/("""<form class="form-horizontal" action="" method="post">
+"""),format.raw/*2.1*/("""<form class="form-horizontal" action="" method="get">
     <div class="form-group">
         <label class="control-label col-sm-2" for="firstName">First Name:</label>
         <div class="col-sm-10">
@@ -112,25 +112,20 @@ Seq[Any](format.raw/*1.4*/("""
     </div>
 </form>
 <script type="text/javascript" src=""""),_display_(/*90.38*/routes/*90.44*/.RoutesController.routesList),format.raw/*90.72*/(""""></script>
-<script>
-
-       $(document).ready(function()"""),format.raw/*93.36*/("""{"""),format.raw/*93.37*/("""
-     """),format.raw/*94.6*/("""$('#submit').on("click",function()"""),format.raw/*94.40*/("""{"""),format.raw/*94.41*/("""
-     """),format.raw/*95.6*/("""alert('in submit'+$('#username').val()+"  "+$('#password').val());
-
-        routesJs.controllers.SignUpController.addUser($('#username').val(),$('#password').val()).ajax("""),format.raw/*97.103*/("""{"""),format.raw/*97.104*/("""
-            """),format.raw/*98.13*/("""success: function(data)"""),format.raw/*98.36*/("""{"""),format.raw/*98.37*/("""
-            """),format.raw/*99.13*/("""alert("ajax success");
-            alert("data"+data)
+<script type="text/javascript">
+       $(document).ready(function()"""),format.raw/*92.36*/("""{"""),format.raw/*92.37*/("""
+     """),format.raw/*93.6*/("""$('#submit').on("click",function()"""),format.raw/*93.40*/("""{"""),format.raw/*93.41*/("""
+           """),format.raw/*94.12*/("""routesJs.controllers.SignUpController.addUser($('#username').val(),$('#password').val()).ajax("""),format.raw/*94.106*/("""{"""),format.raw/*94.107*/("""
+            """),format.raw/*95.13*/("""success: function(data)"""),format.raw/*95.36*/("""{"""),format.raw/*95.37*/("""
+            """),format.raw/*96.13*/("""alert("ajax success");
              $('#body').html(data);
-            """),format.raw/*102.13*/("""}"""),format.raw/*102.14*/(""",
-            error: function(data)"""),format.raw/*103.34*/("""{"""),format.raw/*103.35*/("""
-            """),format.raw/*104.13*/("""$('#body').html(data);
-
-            """),format.raw/*106.13*/("""}"""),format.raw/*106.14*/("""
-        """),format.raw/*107.9*/("""}"""),format.raw/*107.10*/(""");
-      """),format.raw/*108.7*/("""}"""),format.raw/*108.8*/(""");
-    """),format.raw/*109.5*/("""}"""),format.raw/*109.6*/(""");
+            """),format.raw/*98.13*/("""}"""),format.raw/*98.14*/(""",
+            error: function(data)"""),format.raw/*99.34*/("""{"""),format.raw/*99.35*/("""
+            """),format.raw/*100.13*/("""$('#body').html(data);
+            """),format.raw/*101.13*/("""}"""),format.raw/*101.14*/("""
+        """),format.raw/*102.9*/("""}"""),format.raw/*102.10*/(""");
+      """),format.raw/*103.7*/("""}"""),format.raw/*103.8*/(""");
+    """),format.raw/*104.5*/("""}"""),format.raw/*104.6*/(""");
 </script>"""))
       }
     }
@@ -151,11 +146,11 @@ Seq[Any](format.raw/*1.4*/("""
 object signup extends signup_Scope0.signup
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 11 07:19:42 IST 2017
+                  DATE: Sat Mar 11 14:47:32 IST 2017
                   SOURCE: /home/knoldus/Desktop/play-ajax-assignment/app/views/signup.scala.html
-                  HASH: b62580432245970b8f0b200a711b90e3fa3d7e5a
-                  MATRIX: 522->1|618->3|645->4|4115->3447|4130->3453|4179->3481|4264->3538|4293->3539|4326->3545|4388->3579|4417->3580|4450->3586|4649->3756|4679->3757|4720->3770|4771->3793|4800->3794|4841->3807|4972->3909|5002->3910|5066->3945|5096->3946|5138->3959|5203->3995|5233->3996|5270->4005|5300->4006|5337->4015|5366->4016|5401->4023|5430->4024
-                  LINES: 20->1|25->1|26->2|114->90|114->90|114->90|117->93|117->93|118->94|118->94|118->94|119->95|121->97|121->97|122->98|122->98|122->98|123->99|126->102|126->102|127->103|127->103|128->104|130->106|130->106|131->107|131->107|132->108|132->108|133->109|133->109
+                  HASH: 72bedf7d00bbeda6d3609c424723ee57a687c778
+                  MATRIX: 522->1|618->3|645->4|4114->3446|4129->3452|4178->3480|4285->3559|4314->3560|4347->3566|4409->3600|4438->3601|4478->3613|4601->3707|4631->3708|4672->3721|4723->3744|4752->3745|4793->3758|4892->3829|4921->3830|4984->3865|5013->3866|5055->3879|5119->3914|5149->3915|5186->3924|5216->3925|5253->3934|5282->3935|5317->3942|5346->3943
+                  LINES: 20->1|25->1|26->2|114->90|114->90|114->90|116->92|116->92|117->93|117->93|117->93|118->94|118->94|118->94|119->95|119->95|119->95|120->96|122->98|122->98|123->99|123->99|124->100|125->101|125->101|126->102|126->102|127->103|127->103|128->104|128->104
                   -- GENERATED --
               */
           

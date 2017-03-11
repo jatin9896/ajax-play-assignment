@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/knoldus/Desktop/play-ajax-assignment/conf/routes
-// @DATE:Sat Mar 11 07:19:42 IST 2017
+// @DATE:Sat Mar 11 14:29:29 IST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -127,7 +127,7 @@ package controllers.javascript {
       "controllers.LoginController.authenticate",
       """
         function(id0,pass1) {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "login" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("id", id0), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("pass", pass1)])})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "verifying/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", encodeURIComponent(id0)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("pass", encodeURIComponent(pass1))})
         }
       """
     )
@@ -167,7 +167,7 @@ package controllers.javascript {
       "controllers.SignUpController.addUser",
       """
         function(id0,pass1) {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "adduser" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("id", id0), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("pass", pass1)])})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "adduser/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", encodeURIComponent(id0)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("pass", encodeURIComponent(pass1))})
         }
       """
     )

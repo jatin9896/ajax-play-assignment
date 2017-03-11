@@ -68,7 +68,7 @@ Seq[Any](format.raw/*7.32*/("""
 object main extends main_Scope0.main
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 11 01:06:33 IST 2017
+                  DATE: Sat Mar 11 14:29:30 IST 2017
                   SOURCE: /home/knoldus/Desktop/play-ajax-assignment/app/views/main.scala.html
                   HASH: 758add1b4ed61f1d38e166c9b723173e2856adec
                   MATRIX: 784->260|909->290|937->292|1017->397|1053->406|1088->414|1114->419|1203->481|1218->487|1281->528|1369->589|1384->595|1445->634|1497->659|1512->665|1574->706|1668->862|1701->868
